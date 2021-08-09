@@ -1,0 +1,9 @@
+
+N
+java:S2151"3Remove this call to "System.runFinalizersOnExit()".(š×à¹ÿÿÿÿÿ
+V
+java:S1874";Remove this use of "runFinalizersOnExit"; it is deprecated.(š×à¹ÿÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Öï·×ùÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Öï·×ùÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ã¢
+N	java:S106 "9Replace this use of System.out or System.err by a logger.(ã¢

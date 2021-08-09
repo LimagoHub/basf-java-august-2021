@@ -7,18 +7,32 @@ public class Schwein {
     private int gewicht;
 
     // Klassenvariable (Shared Variable)
-    static int counter = 0;
+    private static int counter;
 
+    public static int getCounter() {
+        return counter;
+    }
 
-    // Konstruktor
+    // Klassen-Konstruktor
+    static {
+        counter = 0;
+    }
+
+    // Instanz-Konstruktor
     public Schwein() {
-        name = "nobody";
+
+       this("nobody"); // Muss in einem Kontruktor stehen und es MUSS der erste Befehl sein->Konstruktorweiterleitung
+
+    }
+
+    public Schwein(String name) {
+        setName(name);
         gewicht = 10;
         counter ++;
     }
 
 
-    // Destruktor
+    // Instanz-Destruktor  (mit Vorsicht zu genießen)
     @Override
     protected void finalize() throws Throwable {
         System.out.println("Quieeekk");
@@ -40,16 +54,21 @@ public class Schwein {
     }
 
 
-
+    // Instanz Methode
     public void fressen() {
-        gewicht ++;
+
+        this.gewicht ++;
     }
 
 
     public String toString() {
         return "Schwein{" +
-                "name='" + name + '\'' +
-                ", gewicht=" + gewicht +
+                "name='" + this.name + '\'' +
+                ", gewicht=" + this.gewicht +
                 '}';
+    }
+
+    public static void main(String[] args) {
+
     }
 }
