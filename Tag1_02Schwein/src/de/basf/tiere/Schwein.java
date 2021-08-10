@@ -43,7 +43,7 @@ public class Schwein {
         return name;
     }
 
-    public void setName(String name) {
+    public final void setName(String name) {
         if(name.equals("Elsa"))
             return;
         this.name = name;

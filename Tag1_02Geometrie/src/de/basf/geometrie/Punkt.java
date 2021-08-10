@@ -1,6 +1,6 @@
 package de.basf.geometrie;
 
-public class Punkt {
+public class Punkt extends Object{
 
 
     private static final double MAX = 10.0;
@@ -14,6 +14,7 @@ public class Punkt {
 
        setX(x);
        setY(y);
+        System.out.println("Ctor der Klasse punkt wurde gerufen");
     }
 
     public double getX() {
@@ -44,7 +45,7 @@ public class Punkt {
 
     @Override
     public String toString() {
-        return "Punkt{" +
+        return this.getClass().getSimpleName() + " {" +
                 "x=" + x +
                 ", y=" + y +
                 '}';

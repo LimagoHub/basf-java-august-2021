@@ -7,7 +7,11 @@ public class Stapel {
     private int index;
 
     public Stapel() {
-        data = new int[DEFAULT_SIZE];
+        this(DEFAULT_SIZE);
+    }
+
+    public Stapel(int size) {
+        data = new int[size < 1 ? DEFAULT_SIZE: size];
         index = 0;
     }
 
