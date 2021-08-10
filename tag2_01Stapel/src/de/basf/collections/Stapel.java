@@ -2,24 +2,35 @@ package de.basf.collections;
 
 public class Stapel {
 
-    public Stapel() {
+    public static final int DEFAULT_SIZE = 10;
+    private int [] data;
+    private int index;
 
+    public Stapel() {
+        data = new int[DEFAULT_SIZE];
+        index = 0;
     }
 
     public void push(int value) {
+        if(isFull()) {
+            return ;
+        }
 
+        data[index++] = value; // Postincrement (gegenteil von preincrement)
     }
 
     public int pop() {
-        return 0;
+        if(isEmpty())
+            return 0;
+        return data[--index];
     }
 
     public boolean isEmpty() {
-        return true;
+        return index <= 0;
     }
 
     public boolean isFull() {
-        return true;
+        return index >= data.length;
     }
 
 
