@@ -1,9 +1,9 @@
 package de.basf.collections;
 
-public class Stapel {
+public class Stapel<T> { // t ist ein Platzhalter für einen Typ
 
     public static final int DEFAULT_SIZE = 10;
-    private int [] data;
+    private T [] data;
     private int index;
 
     public Stapel() {
@@ -11,11 +11,11 @@ public class Stapel {
     }
 
     public Stapel(int size) {
-        data = new int[size < 1 ? DEFAULT_SIZE: size];
+        data = (T []) new Object[size < 1 ? DEFAULT_SIZE: size];
         index = 0;
     }
 
-    public void push(int value) {
+    public void push(T value) {
         if(isFull()) {
             return ;
         }
@@ -23,9 +23,9 @@ public class Stapel {
         data[index++] = value; // Postincrement (gegenteil von preincrement)
     }
 
-    public int pop() {
+    public T pop() {
         if(isEmpty())
-            return 0;
+            return null;
         return data[--index];
     }
 
