@@ -11,13 +11,13 @@ public class Stapel<T> { // t ist ein Platzhalter für einen Typ
     }
 
     public Stapel(int size) {
-        data = (T []) new Object[size < 1 ? DEFAULT_SIZE: size];
+        data = (T []) new Object[size < 1 ? DEFAULT_SIZE: size]; // Hier
         index = 0;
     }
 
-    public void push(T value) {
+    public void push(T value) throws StapelException{
         if(isFull()) {
-            return ;
+            throw new StapelException("Overflow"); // Hier
         }
 
         data[index++] = value; // Postincrement (gegenteil von preincrement)
@@ -25,7 +25,7 @@ public class Stapel<T> { // t ist ein Platzhalter für einen Typ
 
     public T pop() {
         if(isEmpty())
-            return null;
+            return null; // Hier
         return data[--index];
     }
 
