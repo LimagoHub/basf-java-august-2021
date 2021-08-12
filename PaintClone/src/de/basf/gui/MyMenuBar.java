@@ -1,15 +1,27 @@
 package de.basf.gui;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MyMenuBar extends MenuBar {
 
-    public MyMenuBar() {
+    public MyMenuBar(PaintClone paintClone) {
         Menu menu;
         MenuItem menuItem;
 
         menu = new Menu("Datei");
         menuItem = new MenuItem("beenden");
+
+        menuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paintClone.beenden();
+            }
+        });
+
+
+
         menu.add(menuItem);
 
         add(menu);
