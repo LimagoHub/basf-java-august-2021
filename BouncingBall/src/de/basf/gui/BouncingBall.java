@@ -9,11 +9,13 @@ public class BouncingBall extends Frame {
     private static final int SIZE = 2000;
     private boolean gameover = false;
     private Rectangle ball;
+    private Rectangle paddle;
     private int xDirection;
     private int yDirection;
 
     public BouncingBall() {
         ball = new Rectangle(SIZE/2,SIZE/2, 50, 50);
+
         xDirection = 1;
         yDirection = 2;
         setSize(SIZE,SIZE);
@@ -46,6 +48,7 @@ public class BouncingBall extends Frame {
             gameover = true;
             dispose();
         }
+
     }
     private void renderScene() {
         Graphics g = strategy.getDrawGraphics();
