@@ -8,12 +8,12 @@ public class BouncingBall extends Frame {
     private final BufferStrategy strategy;
     private static final int SIZE = 2000;
     private boolean gameover = false;
-    private int x, y;
+    private Rectangle ball;
     private int xDirection;
     private int yDirection;
 
     public BouncingBall() {
-        x = y = SIZE / 2;
+        ball = new Rectangle(SIZE/2,SIZE/2, 50, 50);
         xDirection = 1;
         yDirection = 2;
         setSize(SIZE,SIZE);
@@ -33,19 +33,25 @@ public class BouncingBall extends Frame {
         }
     }
     private void calculateScene() {
-        x += xDirection;
-        y += yDirection;
-        if(x <= 0 || x>= getWidth()) {
+        ball.x += xDirection;
+        ball.y += yDirection;
+        if(ball.x <= 0 ||ball.x>= getWidth()) {
             xDirection *= -1;
         }
-        if(y <= 0 || y>= getHeight()) {
+        if(ball.y <= 0 ) {
             yDirection *= -1;
+        }
+
+        if(ball.y >= getHeight()) {
+            gameover = true;
+            dispose();
         }
     }
     private void renderScene() {
         Graphics g = strategy.getDrawGraphics();
         g.clearRect(0,0,SIZE,SIZE);
-        g.fillOval(x,y,50,50);
+        g.fillOval(ball.x,ball.y,ball.width,ball.height);
+
         g.dispose();
         strategy.show();
     }
